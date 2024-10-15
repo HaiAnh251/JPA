@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence 
+https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" version="3.0">
+<persistence-unit name="dataSource">
+ <class>j.haianh.entity.Category</class>
+ <class>j.haianh.entity.Favorite</class>
+ <class>j.haianh.entity.Video</class>
+ <class>j.haianh.entity.Product</class>
+ <class>j.haianh.entity.Role</class>
+ <class>j.haianh.entity.User</class>
+ <properties>
+ <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+ <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpact5" />
+ <property name="jakarta.persistence.jdbc.user" value="root" />
+ <property name="jakarta.persistence.jdbc.password" value="haianh123" />
+ 
+ <property name="jakarta.persistence.schema-generation.database.action" value="create" />
+ <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+ <property name="hibernate.show_sql" value="true" />
+ <property name="hibernate.format_sql" value="true" />
+ <property name="hibernate.hb2ddl.auto" value="update"/>
+ </properties>
+ </persistence-unit>
+</persistence>
