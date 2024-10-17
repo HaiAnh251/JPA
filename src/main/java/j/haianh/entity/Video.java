@@ -5,6 +5,8 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -27,7 +29,8 @@ public class Video implements Serializable{
 	 @Id
 	 
 	 @Column(name="VideoId")
-	 private String videoId;
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private int videoId;
 	 
 	 @Column(name="VideoName")
 	 private String videoname;
@@ -58,20 +61,6 @@ public class Video implements Serializable{
 	//bi-directional many-to-one association to Category
 	 @ManyToOne
 	 @JoinColumn(name="CategoryId")
-	 private Category category;
-
-	
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-	
-	 
-	 
+	 private Category category; 
 	 
 }

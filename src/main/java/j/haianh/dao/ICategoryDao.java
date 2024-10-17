@@ -11,7 +11,7 @@ public interface ICategoryDao {
 	void delete(int cateid ) throws Exception;
 	Category findById( int cateid);
 	List<Category> findAll();
-	List<Category> findBycategoryname(String catename);
+	List<Category> findBycategoryname(String categoryname);
 	List<Category> findAll(int page, int pagesize);
 	int count();
 	

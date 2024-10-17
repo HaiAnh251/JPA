@@ -35,18 +35,18 @@ public class VideoController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
     	String url = req.getRequestURI();
 
-        if (url.contains("/admin/videos")) {
+        if (url.contains("videos")) {
             List<Video> videos = videoSer.findAll();
             req.setAttribute("videos", videos);
-            req.getRequestDispatcher("views/admin/Video/video-list.jsp").forward(req, resp);
-        } else if (url.contains("/admin/video/edit")) {
+            req.getRequestDispatcher("/views/admin/Video/video-list.jsp").forward(req, resp);
+        } else if (url.contains("edit")) {
             int id = Integer.parseInt(req.getParameter("id"));
             Video video = videoSer.findById(id);
             req.setAttribute("video", video);
-            req.getRequestDispatcher("/admin/video-edit.jsp").forward(req, resp);
-        } else if (url.contains("/add")) {
-            req.getRequestDispatcher("views/admin/Video/video-add.jsp").forward(req, resp);
-        } else if (url.contains("/admin/video/delete")) {
+            req.getRequestDispatcher("/views/admin/Video/video-edit.jsp").forward(req, resp);
+        } else if (url.contains("add")) {
+            req.getRequestDispatcher("/views/admin/Video/video-add.jsp").forward(req, resp);
+        } else if (url.contains("delete")) {
             int id = Integer.parseInt(req.getParameter("id"));
             try {
                 videoSer.delete(id);

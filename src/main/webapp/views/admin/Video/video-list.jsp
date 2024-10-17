@@ -19,14 +19,14 @@
     </tr>
     <c:forEach var="video" items="${videos}">
         <tr>
-            <td>${video.id}</td>
+            <td>${video.videoId}</td>
             <td>${video.title}</td>
             <td>${video.description}</td>
-            <td>${video.fileName}</td>
-            <td>${video.uploadDate}</td>
+            <td>${video.filename}</td>
+            <td>${video.uploaddate}</td>
             <td>
-                <a href="${pageContext.request.contextPath}/views/admin/video/edit?id=${video.id}">Edit</a> |
-                <a href="${pageContext.request.contextPath}/admin/video/delete?id=${video.id}"
+                <a href="${pageContext.request.contextPath}/admin/video/edit?id=${video.videoId}">Edit</a> |
+                <a href="${pageContext.request.contextPath}/admin/video/delete?id=${video.videoId}"
                    onclick="return confirm('Are you sure you want to delete this video?');">Delete</a>
             </td>
         </tr>

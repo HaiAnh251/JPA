@@ -41,8 +41,8 @@ public class CategoryService implements ICategoryService{
 	}
 
 	@Override
-	public List<Category> findByCategoryname(String catname) {
-		return cateDao.findBycategoryname(catname);
+	public List<Category> findByCategoryname(String catename) {
+		return cateDao.findBycategoryname(catename);
 	}
 
 	@Override

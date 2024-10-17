@@ -9,7 +9,7 @@
 <body>
 <h1>Edit Video</h1>
 <form action="${pageContext.request.contextPath}/admin/video/update" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="${video.id}"/>
+    <input type="hidden" name="id" value="${video.videoId}"/>
 
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" value="${video.title}" required/><br/><br/>
@@ -19,7 +19,7 @@
 
     <label for="file">Select New File:</label>
     <input type="file" id="file" name="file"/><br/>
-    <small>Current file: ${video.fileName}</small><br/><br/>
+    <small>Current file: ${video.filename}</small><br/><br/>
 
     <input type="submit" value="Update Video"/>
 </form>

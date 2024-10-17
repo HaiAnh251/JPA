@@ -10,7 +10,7 @@ public interface ICategoryService {
 	void delete(int cateid) throws Exception;
 	Category findById(int cateid);
 	List<Category> findAll();
-	List<Category> findByCategoryname(String catname);
+	List<Category> findByCategoryname(String catename);
 	List<Category> findAll(int page,int pagesize);
 	int count();
 

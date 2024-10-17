@@ -38,15 +38,15 @@ public class CategoryController extends HttpServlet {
 		if (url.contains("categories")) {
 			List<Category> list = cateService.findAll();
 			req.setAttribute("listcate", list);
-			req.getRequestDispatcher("/admin/category-list.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/admin/catergory-list.jsp").forward(req, resp);
 		} else if (url.contains("add")) {
-			req.getRequestDispatcher("/admin/category-add.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/admin/catergory-add.jsp").forward(req, resp);
 		} else if (url.contains("edit")) {
 			int id = Integer.parseInt(req.getParameter("id"));
 
 			Category category = cateService.findById(id);
 			req.setAttribute("cate", category);
-			req.getRequestDispatcher("/admin/category-edit.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/admin/catergory-edit.jsp").forward(req, resp);
 		} else if (url.contains("delete")) {
 			String id = req.getParameter("id");
 			try {
@@ -64,12 +64,12 @@ public class CategoryController extends HttpServlet {
 			{
 				List<Category> list = cateService.findByCategoryname(search);
 				req.setAttribute("listcate", list);
-				req.getRequestDispatcher("/admin/category-list.jsp").forward(req, resp);
+				req.getRequestDispatcher("/views/admin/catergory-list.jsp").forward(req, resp);
 				return;
 			}
 			List<Category> list = cateService.findAll();
 			req.setAttribute("listcate", list);
-			req.getRequestDispatcher("/admin/category-list.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/admin/catergory-list.jsp").forward(req, resp);
 		}
 	}
 
@@ -80,10 +80,10 @@ public class CategoryController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 
 		if (url.contains("insert")) {
-Category category = new Category();
+			Category category = new Category();
 			String categoryname = req.getParameter("categoryname");
-			String images = req.getParameter("images1");
 			String status = req.getParameter("status");
+			String images=req.getParameter("images");
 			int statuss = Integer.parseInt(status);
 			category.setStatus(statuss);
 			category.setCategoryname(categoryname);
@@ -95,7 +95,7 @@ Category category = new Category();
 				uploadDir.mkdir();
 			}
 			try {
-				Part part = req.getPart("images");
+				Part part = req.getPart("images1");
 				if (part.getSize() > 0) {
 					String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 					// Doi ten file
@@ -161,9 +161,10 @@ Category category = new Category();
 			} catch (Exception e) {
 				e.printStackTrace();
 
-				cateService.update(category);
-				resp.sendRedirect(req.getContextPath() + "/admin/categories");
+				
 			}
+			cateService.update(category);
+			resp.sendRedirect(req.getContextPath() + "/views/admin/categories");
 		}
 	}
 }

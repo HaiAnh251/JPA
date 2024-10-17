@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+<form action="${pageContext.request.contextPath }/admin/category/search"
+	method="get" enctype="multipart/form-data">
+	<input type="input" id="search" name="search" value="0">
+		<input type="submit" value="Search">
+</form>
+
 <a href="<c:url value="/admin/category/add"/>">Add Category</a>
 <br>
 
@@ -84,11 +91,11 @@ Khóa
 
 
 			<td><a
-				href="<c:url value='/admin/category/edit?id=${cate.categoryid }'/>">Sửa</a>
+				href="<c:url value='/admin/category/edit?id=${cate.categoryId }'/>">Sửa</a>
 
 
 				| <a
-				href="<c:url value='/admin/category/delete?id=${cate.categoryid }'/>">Xóa</a>
+				href="<c:url value='/admin/category/delete?id=${cate.categoryId }'/>">Xóa</a>
 
 
 			</td>
